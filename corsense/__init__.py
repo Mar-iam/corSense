@@ -46,6 +46,7 @@ class csDelegate(DefaultDelegate):
                 rr_value = (float(rr_value) / 1024) * 1000  # convert to ms
                 index += 2
                 rr_list.append(rr_value)
+                print('RR List: ' + str(rr_list))
         else:
             rr_exit = False
 
@@ -53,7 +54,7 @@ class csDelegate(DefaultDelegate):
 class corSense:
     def __init__(self):
         # TODO: search for the correct ID based on corSense name
-        self.corsense = Peripheral("08:7c:be:cd:32:28", ADDR_TYPE_PUBLIC)
+        self.per = Peripheral("08:7c:be:cd:32:28", ADDR_TYPE_PUBLIC)
 
     def retrieveUUID(self):
         self.cccid = AssignedNumbers.client_characteristic_configuration
@@ -61,8 +62,9 @@ class corSense:
         self.hrmid = AssignedNumbers.heart_rate_measurement
 
 
-# connect to corsense device by creating an instance of peripheral
 cs = corSense()
+print(type(cs.per))
+# cs = Peripheral("08:7c:be:cd:32:28", ADDR_TYPE_PUBLIC)
 
 # debug
 print("CorSense has been connected")
@@ -72,18 +74,19 @@ cs.retrieveUUID()
 
 try:
     # set callback for notifications
-    cs.setDelegate(csDelegate())
+    cs.per.setDelegate(csDelegate())
 
     # enable notifications for heart rate measurements
     en_notify = b"\x01\x00"
-    notify = cs.getCharacteristics(uuid=str(cs.hrmid))[0]
+    notify = cs.per.getCharacteristics(uuid=str(cs.hrmid))[0]
     notify_handle = notify.getHandle() + 1
 
-    cs.writeCharacteristic(notify_handle, en_notify, withResponse=True)
+    cs.per.writeCharacteristic(notify_handle, en_notify, withResponse=True)
 
     while True:
-        if cs.waitForNotifications(2):
+        if cs.per.waitForNotifications(2):
             continue
 
 finally:
-    cs.disconnect()
+    cs.per.disconnect()
+
