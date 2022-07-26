@@ -3,7 +3,7 @@ message: "If you use this software, please cite it as below."
 authors:
   - family-names: Bahameish
     given-names: Mariam
-title: "CorSense-BLE Interface"
+title: "CorSense BLE Interface"
 version: 1.0.0
 date-released: 2019-08-24
 url: "https://github.com/Mar-iam/corSense"
