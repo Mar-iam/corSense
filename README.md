@@ -1,4 +1,4 @@
-# corsense
+# CorSense BLE
 An interface for reading HR and HRV data from corSense device by EliteHRV in real-time using Bluetooth Low Energy (BLE).
 
 ## Requirements
