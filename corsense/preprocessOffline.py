@@ -1,8 +1,6 @@
 import glob
 import numpy as np
 import pandas as pd
-from time import time
-from scipy import stats
 
 
 # Read file named in a specific directory
