@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: corsense
+Version: 0.0.1
+Summary: An interface to communicate with CorSense device
+Home-page: https://github.com/mar-iam/corSense
+Author: Mariam
+Author-email: mbahameish@gmail.com
+License: UNKNOWN
+Keywords: hrv signal corsense
+Platform: UNKNOWN
+License-File: LICENSE
+
+# CorSense BLE
+An interface for reading HR and HRV data from corSense device by EliteHRV in real-time using Bluetooth Low Energy (BLE).
+
+## Requirements
+This code is implemented using [bluePy](https://github.com/IanHarvey/bluepy) python package; thus, the current script works on Linux OS.
+
+## 
+
+
