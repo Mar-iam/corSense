@@ -1,7 +1,0 @@
-LICENSE
-README.md
-setup.py
-corsense.egg-info/PKG-INFO
-corsense.egg-info/SOURCES.txt
-corsense.egg-info/dependency_links.txt
-corsense.egg-info/top_level.txt
