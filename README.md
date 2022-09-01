@@ -7,4 +7,4 @@ This code is implemented using [bluePy](https://github.com/IanHarvey/bluepy) pyt
 ## HRV Real-Time Acqusition from CorSense
 Artefact detection is based on a moving window of median RR values
 
-<img src="https://github.com/Mar-iam/corSense/blob/master/corsense/images/RR.gif" width="300">
+<img src="https://github.com/Mar-iam/corSense/blob/master/corsense/images/RR.gif" width="500">
