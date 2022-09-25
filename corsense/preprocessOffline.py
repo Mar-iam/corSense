@@ -40,7 +40,7 @@ def calculate_threshold(xrr, ws):
 
 def detect_outliers(rr, method):
     dRRs = np.diff(rr, prepend=0)
-    dRRs[0] = dRRs[1:].mean()  # Set first item to a realistic value
+    dRRs[0] = dRRs[1:].median()  # Set first item to a realistic value
 
     if method == 'fixed':
         dRRs = np.abs(dRRs)
@@ -65,6 +65,12 @@ def detect_outliers(rr, method):
         th = [250] * len(mRRs)
 
     elif method == 'adaptive':
+        '''
+        Algorithm adopted from: 
+        Lipponen, J. A., & Tarvainen, M. P. (2019). 
+        A robust algorithm for heart rate variability time series artefact correction using novel beat classification. 
+        Journal of Medical Engineering and Technology
+        '''
         # calculate medianRR  with a window size 10
         medianRR = pd.Series(rr).rolling(11, center=True, min_periods=1).median()
 
