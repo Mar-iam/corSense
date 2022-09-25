@@ -40,7 +40,7 @@ def calculate_threshold(xrr, ws):
 
 def detect_outliers(rr, method):
     dRRs = np.diff(rr, prepend=0)
-    dRRs[0] = dRRs[1:].median()  # Set first item to a realistic value
+    dRRs[0] = dRRs[1:].median()
 
     if method == 'fixed':
         dRRs = np.abs(dRRs)
